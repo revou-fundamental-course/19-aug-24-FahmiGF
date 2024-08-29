@@ -1,7 +1,0 @@
-Pastikan tidak ada pemakaian frameork (misalnya di script: js /js query
-
-responsive: @media only screen and (max-idth =
-
-Nav bar = a href 
-
-Dikasih comment banyak juga gak apa2
