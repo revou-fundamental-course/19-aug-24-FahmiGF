@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RevoU Mini Software Engineering Class</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .header-wrapper {  
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid black;
+        padding: 16px 24px;
+        background-color: cornflowerblue;
+        border: 8px solid rgb(45, 133, 160);
+      }
+      /* Header untuk di bagian paling atas (home, dan lain2) */
+      .header-wrapper > .menu {
+        display: flex;
+      }
+
+      .header-wrapper > .menu > button {
+        background-color: white;
+        padding: 8px 16px;
+        border: 1px solid gray;
+        cursor: pointer;
+        transition: 0.3s background-color ease-out;
+      }
+
+      .header-wrapper > .menu > button:hover {
+        background-color: gainsboro;
+      }
+
+      .header-wrapper > .menu > button:first-child {
+        border-radius: 4px 0 0 4px;
+      }
+
+      .header-wrapper > .menu > button:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+
+      .header-wrapper > .logo {
+        height: 60px; 
+        width: auto;
+      }
+      /* Bagian kontent yang di tengah atau isinya*/
+      .main-content {
+        padding: 24px;
+        background-color: coral;
+      }
+      /* Bagian isi yang bentuknya form (Nama, date, dan lain2) */
+      .main-content .form-section {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        margin-top: 20px;
+      }
+
+      .main-content .form-section form,
+      .main-content .form-section .form-output {
+        width: 48%;
+        border: 4px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .img-slideshow {
+        width: 100%;
+        display: none; /* Hide all images initially */
+      }
+
+      .img-slideshow:first-child {
+        display: block; /* Show the first image */
+      }
+      /* Untuk menyesuaikan medianya yang 600px, lebih besar, adaptasi layar dan lain2 */
+      @media only screen and (max-width: 600px) {
+        .header-wrapper {
+          flex-direction: column;
+        }
+
+        .menu {
+          width: 25%;
+          flex-direction: column;
+        }
+
+        .logo {
+          margin-bottom: 14px;
+        }
+        /* Untuk footer atau hal-hal di bagian paling bottom */
+        .footer {
+          width: 100%;
+          border: 4px solid black;
+        }
+
+        .main-content .form-section {
+          flex-direction: column;
+        }
+
+        .main-content .form-section form,
+        .main-content .form-section .form-output {
+          width: 100%;
+        }
+      }
+
+     
+
+    </style>
+  </head>
+  <body>
+    <header class="header-wrapper">
+      <img
+        class="logo"
+        src="https://tse3.mm.bing.net/th?id=OIP.zZGLlcMvxnoqmH2aGLypngHaHa&pid=Api&P=0&h=220"
+      />
+      <div class="menu">
+        <button> <a href="#Homes">Home</a></button> 
+       <button> <a href="#facilitation">Our People</a> </button>
+        <button> <a href="#Contacts">Contact Us</a> </button>
+        <button> <a href="#Messages Us">Submit Data</a> </button>
+    
+      </div>
+    </header>
+    <!--  -->
+    <main class="main-content">
+      <section id="Homes" class="Homes"></section>
+      <h1>Home</h1>
+      <h2>Hi <span id="name">User,</span> Welcome To This website! </h2>
+      <p>Currently, we have admin, moderator and staff </p>
+      <p>Be sure to check it out!</p>
+      <!-- Bagian link2 dan image slidesho, yang nantinya interval second untuk ganti2 -->
+      <div>
+        <img
+          class="img-slideshow"
+          src="https://tse4.mm.bing.net/th?id=OIP.ng_hBN0EEsk5rwGrEgbLaQHaE8&pid=Api&P=0&h=220"
+        />
+        <img
+          class="img-slideshow"
+          src="https://i0.wp.com/landlopers.com/wp-content/uploads/2018/04/Taj-Mahal-India.jpg?resize=994%2C811&ssl=1"
+        />
+        <img
+          class="img-slideshow"
+          src="https://tse3.mm.bing.net/th?id=OIP.cew5Ub5da1dvZ1HzC9g2_QHaF-&pid=Api&P=0&h=220"
+        />
+        <button onclick="plusDivs(-1)">Previous</button>
+        <button onclick="plusDivs(1)">Next</button>
+      </div>
+
+      <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs((slideIndex += n));
+        }
+
+        function showDivs(n) {
+          var i;
+          var imgList = document.getElementsByClassName("img-slideshow");
+          if (n > imgList.length) slideIndex = 1;
+          if (n < 1) slideIndex = imgList.length;
+
+          for (i = 0; i < imgList.length; i++) {
+            imgList[i].style.display = "none";
+          }
+
+          imgList[slideIndex - 1].style.display = "block";
+        }
+        // Memasukkan batasan time yang disetting untuk automatis diubah
+        setInterval(() => {
+          plusDivs(1);
+        }, 5000);
+      </script>
+
+<!-- Our Facilitation Section -->
+<section id="facilitation" class="facilitation">
+  <h2>Our People</h2>
+  <div class="facilitation-cards">
+      <div class="facilitation-card">
+          <div class="bubble-image img">
+            
+              <img src="https://tse3.mm.bing.net/th?id=OIP.rK_m5PFcHfplXxqYn3tEcQHaFj&pid=Api&P=0&h=220" alt="Professional Teacher">
+          </div>
+          <h3>(-) Admin Sealius</h3>
+      </div>
+      <div class="facilitation-card">
+          <div class="bubble-image">
+              <img src="https://tse4.mm.bing.net/th?id=OIP.xRIg46B1zdQOdNSI1GNwJwHaFo&pid=Api&P=0&h=220" alt="Sport Field">
+          </div>
+          <h3>(-) Moderator Froggy</h3>
+      </div>
+      <div class="facilitation-card">
+          <div class="bubble-image">
+              <img src="https://tse2.mm.bing.net/th?id=OIP.5U65WOAVubee0xmd26YcnQHaE6&pid=Api&P=0&h=220" alt="Classroom">
+          </div>
+          <h3>(-) Technical Staff</h3>
+      </div>
+  </div>
+</section>
+
+
+
+      <div class="form-section">
+        <form name="message-form" onsubmit="return validateForm()">
+          <section id="Messages Us" class="Messages Us"></section>
+          <h1>Submit your data</h1>
+          <!-- Memasukkan nama yang diinginkan -->
+          Name:
+          <input placeholder="Enter your Name here" type="text" name="full-name" />
+          <br />
+
+          Date:
+          <input type="date" name="birth-date" />
+          <br />
+          <!-- Untuk gendernya dipilih, male or female dengan radio button type -->
+          Gender:
+          <input type="radio" id="male" name="gender" value="Laki-laki" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Perempuan" />
+          <label for="female">Female</label>
+          <br />
+
+          Message:
+          <textarea placeholder="Enter your message here" name="messages"></textarea>
+          <br />
+          <!-- Untuk mensubmit yang nantinya ke output -->
+          <input type="submit" value="Submit" />
+        </form>
+        <script>
+          function validateForm() {
+            var Name = document.forms["message-form"]["full-name"].value;
+            var date = document.forms["message-form"]["birth-date"].value;
+            var gender = document.forms["message-form"]["gender"].value;
+            var messages = document.forms["message-form"]["messages"].value;
+            // Akibatnya jika kosong atau ada data2 yang belum diisi/valid 
+            if (Name == "" || date == "" || gender == "" || messages == "") {
+              alert("Please Ensure your data is valid/filled (Name, Date, Gender and Message)");
+              return false;
+            }
+            // Get element by id full name dan lain2, dari diatas, name date dan lain2)
+            document.getElementById("sender-full-name").innerText = Name;
+            document.getElementById("sender-birth-date").innerText = date;
+            document.getElementById("sender-gender").innerText = gender;
+            document.getElementById("sender-messages").innerText = messages;
+            return false;
+          }
+        </script>
+        <!-- Output form, ketika disudah diinput nama2 dan lain2 -->
+        <div class="form-output">
+          <p>Name: <span id="sender-full-name"></span></p>
+          <p>Date: <span id="sender-birth-date"></span></p>
+          <p>Gender: <span id="sender-gender"></span></p>
+          <p>Your Message: <span id="sender-messages"></span></p>
+        </div>
+      </div>
+      <!-- Informasi tambahan tentang laman  -->
+      <div>
+        <section id="Contacts" class="Contacts"></section>
+        <h1> Contact Us!</h1>
+        <h3>Email: Seal-ly@gmail.com</h3>
+        <h3>Phone Number: 01023012304</h3>
+        <h3>
+          Contact Person via whatsapp:
+          (Seal-ly) = 09828182312 (Sea) = 081823812838
+          <p>NOTE: They aren't real, don't worry :3</p>
+        </h3>
+      </div>
+      <!-- Ini untuk informasi tambahan kontak yang dihubungi -->
+      <div>
+        Find Us On:
+        <button>Twitter</button>
+        <button>Facebook</button>
+        <button>Instagram</button>
+        <button>Tiktok</button>
+        <p> Indonesia | Jakarta | Semarang</p>
+      </div>
+
+      <footer class="footer">
+        Created by : Fahmi
+      </footer>
+
+    </main>
+  </body>
+</html>
